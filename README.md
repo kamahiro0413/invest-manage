@@ -40,7 +40,7 @@ Things you may want to cover:
 - has_many :groups, through: group_users
 
 
-## group テーブル
+## groups テーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
@@ -66,7 +66,7 @@ Things you may want to cover:
 - belongs_to :group
 
 
-## investment テーブル
+## investments テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -83,4 +83,3 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :group
-
