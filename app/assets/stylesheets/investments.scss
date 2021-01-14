@@ -1,3 +1,91 @@
 // Place all the styles related to the investments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper {
+  height: calc(100vh - 70px - 20px);
+  display: flex;
+  background-color: #ffffe0;
+}
+
+// サイドバー
+.side-bar {
+  width: 300px;
+  background-color: #f4f4f4;
+  margin: 20px;
+}
+
+.login-user {
+  height: 60px;
+  width: 300px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.login-user-left {
+  align-self: start;
+  margin: 5px;
+  font-weight: bolder;
+}
+
+.login-user-name {
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.new-group {
+  background-color: #4f96f6;
+  margin: 3px;
+  margin-bottom: 10px;
+  border: outset;
+  text-align: center;
+  color: white;
+  padding: 8px;
+  font-size: 17px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.groups {
+  overflow: scroll;
+}
+
+.group-title {
+  background-color: #6bb6ff;
+  text-align: center;
+  font-size: 19px;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding: 2px;
+}
+
+.group {
+  padding-left: 10px;
+  margin: 9px 6px;
+  font-size: 17px;
+  font-weight: bolder;
+  color: #524e4d;
+  background-color: #c8e4ff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+// 投資カレンダー
+.investments {
+  width: calc(100vw - 300px);
+  background-color: #f4f4f4;
+  margin: 20px 20px 20px 0;
+}
+
+.invest-header {
+  height: 60px;
+  background-color: white;
+  margin: 2px;
+}
+
+.invest-calendar {
+  height: calc(100vh - 70px - 20px - 60px - 46px);
+  background-color: white;
+  margin: 2px;
+}
