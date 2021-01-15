@@ -18,3 +18,14 @@
  * {
    box-sizing: border-box;
  }
+
+ /* 新規登録 */
+ .contents-row {
+  position: relative;
+ }
+
+ footer {
+   position: absolute;
+   bottom: 0;
+   width: 100vw;
+ }
