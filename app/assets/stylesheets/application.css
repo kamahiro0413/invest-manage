@@ -18,3 +18,63 @@
  * {
    box-sizing: border-box;
  }
+
+ /* 新規登録 */
+ .contents-row {
+  position: relative;
+
+ }
+
+ footer {
+   position: absolute;
+   bottom: 0;
+   width: 100vw;
+ }
+
+ body {
+   background-color: #ffffe0;
+   height: 100vh;
+ }
+
+ .header {
+  background-color: #6bb6ff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.header-title {
+  display: flex;
+}
+
+.logo {
+  border: dashed;
+  margin: 0 20px ;
+}
+
+.header-app-name {
+  font-size: 30px;
+}
+
+.header-botton {
+  display: flex;
+  align-items: center;
+}
+
+.log-in-botton {
+ margin-right: 20px;
+ border: 2px solid white;
+ padding: 5px;
+ text-decoration: none;
+ color: white;
+ background-color: #4f96f6;
+}
+
+.header-botton i {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+}
