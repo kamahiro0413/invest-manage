@@ -1,0 +1,39 @@
+.header {
+  background-color: #6bb6ff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.header-title {
+  display: flex;
+}
+
+.logo {
+  border: dashed;
+  margin: 0 20px ;
+}
+
+.header-app-name {
+  font-size: 30px;
+}
+
+.header-botton {
+  margin-right: 20px ;
+  display: flex;
+  align-items: center;
+}
+
+.log-in-botton {
+ margin:0 15px;
+ border: 2px solid;
+ padding: 5px;
+}
+
+.sign-in-botton {
+  border: 2px solid;
+  padding: 5px;
+}

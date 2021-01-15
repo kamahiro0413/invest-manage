@@ -1,0 +1,60 @@
+<%# ヘッダー %>
+<%= render "shared/header" %>
+
+<%# メイン %>
+<div class="wrapper">
+
+<%# サイドバー %>
+ <div class="side-bar">
+  <div class="login-user">
+   <div class="login-user-left">
+    <p>ようこそ！</p>
+   </div>
+   <div class="login-user-name">
+    <p><span><b>ユーザー名</b></span> さん</p>
+   </div>
+  </div>
+  <div class="groups">
+   <div class="new-group">
+    <p><i class="fas fa-pencil-alt"></i>   新しいグループを作成</p>
+   </div>
+   <div class="group-title">
+    <p><i class="fas fa-list"></i>   グループ一覧</p>
+   </div>
+    <div class="group">
+     <p>自分専用<p>
+    </div>
+    <div class="group">
+     <p>かぞくみんな<p>
+    </div>
+    <div class="group">
+     <p>子供の学費積立<p>
+    </div>
+  </div>
+ </div>
+
+ <%# 投資カレンダー  %>
+ <div class="investments">
+  <div class="invest-header">
+    <div class="invest-botton">
+    <p>入力</p>
+    </div>
+    <div class="invest-title">
+    <p>ここにグループ名〜</p>
+    </div>
+    <div class="invest-total">
+    <p>追加実装</p>
+    <p>(仮)</p>
+    </div>
+  </div>
+  <%= month_calendar do |date| %>
+  <%= date.day %>
+  <p>貯金</p>
+  <p>投資</p>
+  <p>配当金</p>
+  <% end %>
+  </div>
+ </div>
+</div>
+
+<%= render "shared/footer" %>
