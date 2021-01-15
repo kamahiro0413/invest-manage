@@ -13,25 +13,29 @@
   </head>
 
   <body>
+    <%# ヘッダー %>
     <header class="header">
      <div class="header-title">
-     <div class="logo">
-     <p>ロゴ</p>
-     </div>
-     <div class="header-app-name">
-     <p>投資管理あぷり(仮)</p>
-     </div>
+      <div class="logo">
+       <p>ロゴ</p>
+      </div>
+      <div class="header-app-name">
+       <p>投資管理あぷり(仮)</p>
+      </div>
      </div>
      <div class="header-botton">
-     <i class="fas fa-home fa-2x" ></i>
-     <div class="log-in-botton">
-     <p>ログイン</p>
-     </div>
-     <div class="sign-in-botton">
-     <p>新規登録</p>
+        <a href="/"><i class="fas fa-home fa-2x" ></i></a>
+       
+       <% if user_signed_in? %>
+          <%= link_to "ログアウト",destroy_user_session_path, method: :delete, class:"log-in-botton" %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "log-in-botton" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "log-in-botton" %>
+        <% end %>
      </div>
     </div>
     </header>
+
     <%= yield %>
     <footer class="footer">
     <p>Copyright 2021 H.kamada</p>

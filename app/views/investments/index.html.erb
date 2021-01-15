@@ -8,7 +8,11 @@
     <p>ようこそ！</p>
    </div>
    <div class="login-user-name">
-    <p><span><b>ユーザー名</b></span> さん</p>
+    <% if user_signed_in? %>
+    <%= "#{current_user.nickname} さん" %>
+    <% else %>
+    <p><span><b>ゲスト</b></span> さん</p>
+    <% end %>
    </div>
   </div>
   <div class="groups">
@@ -32,6 +36,7 @@
 
  <%# 投資カレンダー  %>
  <div class="investments">
+  <% if user_signed_in? %>
   <div class="invest-header">
     <div class="invest-botton">
     <p>入力</p>
@@ -52,4 +57,7 @@
   <% end %>
   </div>
  </div>
+ <% else %>
+ <img src="https://thinklistenlearn.com/wp-content/uploads/Demo-5.jpg" width="900px">
+ <% end %>
 </div>
