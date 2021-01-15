@@ -36,10 +36,23 @@
  <%# 投資カレンダー  %>
  <div class="investments">
   <div class="invest-header">
-   <div class=""></div>
+    <div class="invest-botton">
+    <p>入力</p>
+    </div>
+    <div class="invest-title">
+    <p>ここにグループ名〜</p>
+    </div>
+    <div class="invest-total">
+    <p>追加実装</p>
+    <p>(仮)</p>
+    </div>
   </div>
-  <div class="invest-calendar">
-    
+  <%= month_calendar do |date| %>
+  <%= date.day %>
+  <p>貯金</p>
+  <p>投資</p>
+  <p>配当金</p>
+  <% end %>
   </div>
  </div>
 </div>

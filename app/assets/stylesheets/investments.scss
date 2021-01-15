@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .wrapper {
-  height: calc(100vh - 70px - 20px);
+  height: calc(100vh - 70px - 13px);
   display: flex;
   background-color: #ffffe0;
 }
@@ -13,6 +13,7 @@
   width: 300px;
   background-color: #f4f4f4;
   margin: 20px;
+  overflow: scroll;
 }
 
 .login-user {
@@ -69,23 +70,49 @@
   background-color: #c8e4ff;
   padding-top: 4px;
   padding-bottom: 4px;
+  border: darkgray solid thin;
 }
 
 // 投資カレンダー
 .investments {
   width: calc(100vw - 300px);
   background-color: #f4f4f4;
-  margin: 20px 20px 20px 0;
+  margin: 10px 20px 15px 0;
+  overflow: scroll;
 }
 
 .invest-header {
-  height: 60px;
+  height: 40px;
   background-color: white;
   margin: 2px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  box-sizing: border-box;
+  
 }
 
-.invest-calendar {
-  height: calc(100vh - 70px - 20px - 60px - 46px);
-  background-color: white;
-  margin: 2px;
+.invest-botton {
+  background-color: red;
+  width: 100px;
+  margin: auto;
+  padding: 5px;
 }
+
+.invest-title {
+  background-color: blue;
+  width: 100%;
+  margin: auto;
+  padding: 5px;
+}
+
+.invest-total {
+  background-color: yellow;
+  width: 100px;
+  font-size: 10px;
+  margin: auto;
+  padding: 5px;
+}
+
+
