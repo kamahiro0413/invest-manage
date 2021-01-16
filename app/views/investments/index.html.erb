@@ -5,7 +5,11 @@
  <div class="side-bar">
   <div class="login-user">
    <div class="login-user-left">
+   <% if user_signed_in? %>
+    <p>こんにちは！</p>
+     <% else %>
     <p>ようこそ！</p>
+    <% end %>
    </div>
    <div class="login-user-name">
     <% if user_signed_in? %>
@@ -17,20 +21,32 @@
   </div>
   <div class="groups">
    <div class="new-group">
-    <p><i class="fas fa-pencil-alt"></i>   新しいグループを作成</p>
+    <% if user_signed_in?%>
+   <a href="/groups/new"><i class="fas fa-pencil-alt" ></i>&nbsp;&nbsp;新しいグループを作成</a>
+    <% else %>
+  <a href="/users/sign_in"><i class="fas fa-sign-in-alt" ></i>&nbsp;&nbsp;ログインでグループ作成可能</a>
+  <% end %>
    </div>
    <div class="group-title">
-    <p><i class="fas fa-list"></i>   グループ一覧</p>
+    <p><i class="fas fa-list"></i>&nbsp;&nbsp;グループ一覧</p>
    </div>
+    <% if user_signed_in? %>
+     <% current_user.groups.each do |group| %>
     <div class="group">
-     <p>自分専用<p>
+        <%= link_to "#{group.name}", root_path, class: "group-name" %>
+    </div>
+  <% end %>
+    <% else %>
+    <div class="group">
+     <p>【デモ】自分専用<p>
     </div>
     <div class="group">
-     <p>かぞくみんな<p>
+     <p>【デモ】かぞくみんな<p>
     </div>
     <div class="group">
-     <p>子供の学費積立<p>
+     <p>【デモ】子供の学費積立<p>
     </div>
+    <% end %>
   </div>
  </div>
 
@@ -49,6 +65,7 @@
     <p>(仮)</p>
     </div>
   </div>
+  <div class="calendar">
   <%= month_calendar do |date| %>
   <%= date.day %>
   <p>貯金</p>
@@ -60,4 +77,5 @@
  <% else %>
  <img src="https://thinklistenlearn.com/wp-content/uploads/Demo-5.jpg" width="900px">
  <% end %>
+ </div>
 </div>
