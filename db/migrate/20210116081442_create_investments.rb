@@ -4,7 +4,7 @@ class CreateInvestments < ActiveRecord::Migration[6.0]
       t.date :date ,       null: false
       t.integer :money,    null: false
       t.string :content
-      t.integer :type,     null: false
+      t.integer :category,     null: false
       t.integer :account,  null: false
       t.integer :period
       t.references :user,  foreign_key: true

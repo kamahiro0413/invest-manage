@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_01_16_081442) do
     t.date "date", null: false
     t.integer "money", null: false
     t.string "content"
-    t.integer "type", null: false
+    t.integer "category", null: false
     t.integer "account", null: false
     t.integer "period"
     t.bigint "user_id"

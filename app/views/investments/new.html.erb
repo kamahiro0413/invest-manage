@@ -1,2 +1,18 @@
-<p>新規ページ</p>
-<p>ここに投稿用フォームをつくる</p>
+<p>入力ページ</p>
+<%= form_with model:[@group,@investment],class:"form",url:group_investments_path,local: true do |f| %>
+<div class="form-input">
+<p>日付</p>
+<%= f.date_field :date %>
+<p>金額</p>
+<%= f.text_field :money, class: "form-message" %>
+<p>内容</p>
+<%= f.text_field :content, class: "form-message" %>
+<p>種別　数字　アクティブハッシュ</p>
+<%= f.text_field :category, class: "form-message" %>
+<p>口座　数字　アクティブハッシュ</p>
+<%= f.text_field :account, class: "form-message" %>
+<p>期間　数字　アクティブハッシュ</p>
+<%= f.text_field :period, class: "form-message" %>
+</div>
+<%= f.submit '送信', class: 'form-submit' %>
+<% end %>

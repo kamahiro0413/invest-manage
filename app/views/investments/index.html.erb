@@ -55,7 +55,8 @@
   <% if user_signed_in? %>
   <div class="invest-header">
     <div class="invest-botton">
-    <a href="/groups/:group_id/investments/new"><i class="fas fa-piggy-bank" ></i>&nbsp;&nbsp;情報を入力</a>
+    <%# <a href="/groups/investments/new"><i class="fas fa-piggy-bank" ></i>&nbsp;&nbsp;情報を入力</a> %>
+    <i class="fas fa-piggy-bank" ><%= link_to " 情報を入力", new_group_investment_path(@group) %></i>
     </div>
     <div class="invest-title">
     <%= @group.name %>
