@@ -73,8 +73,31 @@
  background-color: #4f96f6;
 }
 
+.log-in-botton:hover {
+  background-color: white;
+  color: #4f96f6;
+  border: solid 2px;
+}
+
 .header-botton i {
   margin-right: 20px;
   text-decoration: none;
   color: white;
+}
+
+.group-name {
+  text-decoration: none;
+}
+
+.group {
+  padding-left: 10px;
+  margin: 9px 6px;
+  font-size: 17px;
+  font-weight: bolder;
+  color: #524e4d;
+  background-color: #c8e4ff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border: darkgray solid thin;
+  text-decoration: none;
 }

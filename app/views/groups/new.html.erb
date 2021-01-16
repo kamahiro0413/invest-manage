@@ -15,6 +15,13 @@
       <div class='chat-room-form__field--left'>
       </div>
       <div class='chat-room-form__field--right'>
+      <select name="group[user_ids][]">
+          <option value="">追加したいメンバーを選択</option>
+          <% User.where.not(id: current_user.id).each do |user| %>
+            <option value=<%= user.id %>><%= user.nickname %></option>
+          <% end %>
+        </select>
+        <input name="group[user_ids][]" type="hidden" value=<%= current_user.id %>>
       </div>
     </div>
     <div class='chat-room-form__field'>
