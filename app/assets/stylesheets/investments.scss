@@ -97,6 +97,7 @@
   overflow: scroll;
 }
 
+// ヘッダー部
 .invest-header {
   height: 40px;
   background-color: white;
@@ -110,10 +111,26 @@
 }
 
 .invest-botton {
-  background-color: red;
-  width: 100px;
-  margin: auto;
-  padding: 5px;
+  background-color: #4f96f6;
+  margin: 0;
+  width: 180px;
+  padding: 2px;
+  padding-top: 6px;
+  border: outset;
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.invest-botton a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+}
+
+.invest-botton:active {
+  transform: translateY(2px);
+  border-bottom: none;
+  margin-bottom: 2px;
 }
 
 .invest-title {
