@@ -3,6 +3,7 @@ class InvestmentsController < ApplicationController
   def index
     @investment = Investment.new
     @group = Group.find(params[:group_id])
+    @investments = Investment.all
   end
 
   def new
@@ -23,7 +24,7 @@ class InvestmentsController < ApplicationController
   private
 
   def investment_params
-    params.require(:investment).permit(:content,:date,:money,:category,:account,:period).merge(user_id: current_user.id)
+    params.require(:investment).permit(:content,:start_time,:money,:category,:account,:period).merge(user_id: current_user.id)
   end
 
 end

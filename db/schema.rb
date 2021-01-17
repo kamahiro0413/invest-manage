@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_01_16_081442) do
   end
 
   create_table "investments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "date", null: false
+    t.date "start_time", null: false
     t.integer "money", null: false
     t.string "content"
     t.integer "category", null: false

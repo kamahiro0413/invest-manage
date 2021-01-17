@@ -2,7 +2,7 @@
 <%= form_with model:[@group,@investment],class:"form",url:group_investments_path,local: true do |f| %>
 <div class="form-input">
 <p>日付</p>
-<%= f.date_field :date %>
+<%= f.date_field :start_time %>
 <p>金額</p>
 <%= f.text_field :money, class: "form-message" %>
 <p>内容</p>

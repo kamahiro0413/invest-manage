@@ -67,11 +67,11 @@
     </div>
   </div>
   <div class="calendar">
-  <%= month_calendar do |date| %>
+  <%= month_calendar events: @investments do |date, investments| %>
   <%= date.day %>
-  <p>貯金</p>
-  <p>投資</p>
-  <p>配当金</p>
+  <% investments.each do|investment|%>
+  <div><%= investment.money %></div>
+  <% end %>
   <% end %>
   </div>
  </div>
