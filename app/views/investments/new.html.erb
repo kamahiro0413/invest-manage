@@ -5,10 +5,13 @@
 <%= f.date_field :start_time %>
 <p>金額</p>
 <%= f.text_field :money, class: "form-message" %>
+
 <p>内容</p>
 <%= f.text_field :content, class: "form-message" %>
+
 <p>種別　数字　アクティブハッシュ</p>
-<%= f.text_field :category, class: "form-message" %>
+<%= f.collection_select(:category, Category.all, :id, :name, {},{class: "form-message" }) %>
+
 <p>口座　数字　アクティブハッシュ</p>
 <%= f.text_field :account, class: "form-message" %>
 <p>期間　数字　アクティブハッシュ</p>

@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2021_01_16_081442) do
     t.date "start_time", null: false
     t.integer "money", null: false
     t.string "content"
-    t.integer "category", null: false
-    t.integer "account", null: false
-    t.integer "period"
+    t.integer "category_id", null: false
+    t.integer "account_id", null: false
+    t.integer "period_id"
     t.bigint "user_id"
     t.bigint "group_id"
     t.datetime "created_at", precision: 6, null: false
