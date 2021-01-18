@@ -9,11 +9,11 @@
 <p>内容</p>
 <%= f.text_field :content, class: "form-message" %>
 
-<p>種別　数字　アクティブハッシュ</p>
-<%= f.collection_select(:category, Category.all, :id, :name, {},{class: "form-message" }) %>
+<p>種別</p>
+<%= f.collection_select(:category_id, Category.all, :id, :name, {},{class: "form-message" }) %>
 
-<p>口座　数字　アクティブハッシュ</p>
-<%= f.text_field :account, class: "form-message" %>
+<p>口座</p>
+<%= f.collection_select(:account_id, Account.all, :id, :name, {},{class: "form-message" }) %>
 <p>期間　数字　アクティブハッシュ</p>
 <%= f.text_field :period, class: "form-message" %>
 </div>
