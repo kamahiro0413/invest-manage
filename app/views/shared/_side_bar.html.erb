@@ -1,7 +1,3 @@
-<%# メイン %>
-<div class="wrapper">
-
-<%# サイドバー %>
  <div class="side-bar">
   <div class="login-user">
    <div class="login-user-left">
@@ -49,34 +45,3 @@
     <% end %>
   </div>
  </div>
-
- <%# 投資カレンダー  %>
- <div class="investments">
-  <% if user_signed_in? %>
-  <div class="invest-header">
-    <div class="invest-botton">
-    <%# <a href="/groups/investments/new"><i class="fas fa-piggy-bank" ></i>&nbsp;&nbsp;情報を入力</a> %>
-    <i class="fas fa-piggy-bank" ><%= link_to " 情報を入力", new_group_investment_path(@group) %></i>
-    </div>
-    <div class="invest-title">
-    <%= @group.name %>
-    </div>
-    <div class="invest-total">
-    <p>追加実装</p>
-    <p>(仮)</p>
-    </div>
-  </div>
-  <div class="calendar">
-  <%= month_calendar events: @investments do |date, investments| %>
-  <%= date.day %>
-  <% investments.each do|investment|%>
-  <div><%= investment.money %></div>
-  <% end %>
-  <% end %>
-  </div>
- </div>
- <% else %>
- <img src="https://thinklistenlearn.com/wp-content/uploads/Demo-5.jpg" width="900px">
- <% end %>
- </div>
-</div>
