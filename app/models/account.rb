@@ -16,4 +16,5 @@ class Account < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :investments
+  
 end

@@ -5,11 +5,13 @@ class Investment < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :account
+  belongs_to :period
 
   with_options presence: true do
   validates :start_time
   validates :money
   validates :category_id, numericality: { other_than: 1 }
   validates :account_id, numericality: { other_than: 1 } 
+  validates :period_id
   end
 end

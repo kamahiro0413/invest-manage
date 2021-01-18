@@ -24,7 +24,7 @@ class InvestmentsController < ApplicationController
   private
 
   def investment_params
-    params.require(:investment).permit(:content,:start_time,:money,:category_id,:account,:period).merge(user_id: current_user.id)
+    params.require(:investment).permit(:content,:start_time,:money,:category_id,:account_id,:period_id).merge(user_id: current_user.id)
   end
 
 end
