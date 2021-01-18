@@ -1,9 +1,9 @@
 class InvestmentsController < ApplicationController
 
   def index
-    @investment = Investment.new
+    # @investment = Investment.new
     @group = Group.find(params[:group_id])
-    @investments = Investment.all
+    @investments = @group.investments
   end
 
   def new
