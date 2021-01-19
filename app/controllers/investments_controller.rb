@@ -28,6 +28,21 @@ class InvestmentsController < ApplicationController
    @investment = Investment.find(params[:id]) 
   end
 
+  def edit
+    # @group = Group.find(params[:group_id])
+    @investment = Investment.find(params[:id])
+  end
+
+  def update
+    @investment = Investment.find(params[:id])
+    # @group = Group.find(params[:group_id])
+    if @investment.update(investment_params)
+      redirect_to group_investment_path
+     else
+      render :edit
+     end
+  end
+
   private
 
   def investment_params
