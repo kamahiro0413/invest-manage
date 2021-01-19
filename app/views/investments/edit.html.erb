@@ -1,0 +1,25 @@
+<p>編集ページ</p>
+<p>ルーティングメモ</p>
+<p>   edit_group_investment GET    /groups/:group_id/investments/:id/edit(.:format)  </p>
+
+<p>入力ページ</p>
+<%= form_with model:@investment,class:"form",url:group_investment_path(id: @investment.id),local: true do |f| %>
+<div class="form-input">
+<p>日付</p>
+<%= f.date_field :start_time %>
+<p>金額</p>
+<%= f.text_field :money, class: "form-message" %>
+
+<p>内容</p>
+<%= f.text_field :content, class: "form-message" %>
+
+<p>種別</p>
+<%= f.collection_select(:category_id, Category.all, :id, :name, {},{class: "form-message" }) %>
+
+<p>口座</p>
+<%= f.collection_select(:account_id, Account.all, :id, :name, {},{class: "form-message" }) %>
+<p>期間</p>
+<%= f.collection_select(:period_id, Period.all, :id, :name, {},{class: "form-message" }) %>
+</div>
+<%= f.submit '送信', class: 'form-submit' %>
+<% end %>

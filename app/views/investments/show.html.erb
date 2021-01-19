@@ -1,9 +1,29 @@
 <p>詳細ページ</p>
-
-<%= @user.nickname %> 
+<div class="invest-form">
+<%= @investment.user.nickname %>
+</div>
+<div class="invest-form"> 
+<%= @investment.start_time.strftime('%Y年%-m月%d日') %>
+</div>
+<div class="invest-form"> 
 <%= @investment.money %>
+</div>
+<div class="invest-form">
 <%= @investment.content %>
+</div>
+<div class="invest-form">
 <%= @investment.category.name %>
+</div>
+<div class="invest-form">
 <%= @investment.account.name %>
+</div>
+<div class="invest-form">
 <%= @investment.period.name %>
+</div>
+<P></P>
+<% if current_user.id == @investment.user.id %>
+<%= link_to "編集ボタン",edit_group_investment_path(id: @investment.id) %>
+<% end %>
+<p></p>
+<p>削除ボタン</p>
 
