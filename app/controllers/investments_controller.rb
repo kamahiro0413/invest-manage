@@ -1,8 +1,10 @@
 class InvestmentsController < ApplicationController
 
   def index
-    # @investment = Investment.new
     @group = Group.find(params[:group_id])
+    # @investment = Investment.find(investment_params)
+    # @investments = @group.investment
+   
     @investments = @group.investments
   end
 
@@ -19,6 +21,11 @@ class InvestmentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+   @user = User.find(params[:id])
+   @investment = Investment.find(params[:id]) 
   end
 
   private
