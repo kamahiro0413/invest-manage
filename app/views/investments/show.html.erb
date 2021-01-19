@@ -23,6 +23,7 @@
 <P></P>
 <% if current_user.id == @investment.user.id %>
 <%= link_to "編集ボタン",edit_group_investment_path(id: @investment.id) %>
+<%= link_to "削除ボタン",group_investment_path(id: @investment.id), method: :delete %>
 <% end %>
 <p></p>
 <p>削除ボタン</p>

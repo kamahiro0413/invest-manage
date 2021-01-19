@@ -24,7 +24,7 @@ class InvestmentsController < ApplicationController
   end
 
   def show
-   @user = User.find(params[:id])
+  #  @user = User.find(params[:id])
    @investment = Investment.find(params[:id]) 
   end
 
@@ -41,6 +41,12 @@ class InvestmentsController < ApplicationController
      else
       render :edit
      end
+  end
+
+  def destroy
+    @investment = Investment.find(params[:id])
+    @investment.destroy
+    redirect_to  :action => 'index'
   end
 
   private

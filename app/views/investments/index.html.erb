@@ -78,7 +78,8 @@
   <%= month_calendar events: @investments do |date, investments| %>
   <%= date.day %>
   <% investments.each do|investment|%>
-  <%= link_to "#{investment.money.to_s(:delimited)}円", group_investment_path(id: investment.id) %>
+  <p><%= link_to "#{investment.money.to_s(:delimited)}円", group_investment_path(id: investment.id) %></p>
+  <%= investment.user.nickname %>
   <% end %>
   <% end %>
   </div>

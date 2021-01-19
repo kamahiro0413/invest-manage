@@ -85,6 +85,10 @@
   color: white;
 }
 
+.header-botton i:hover {
+  color: #4f96f6;
+}
+
 .group-name {
   text-decoration: none;
 }
