@@ -15,7 +15,7 @@
 <p>口座</p>
 <%= f.collection_select(:account_id, Account.all, :id, :name, {},{class: "form-message" }) %>
 <p>期間</p>
-<%= f.collection_select(:priod_id, Period.all, :id, :name, {},{class: "form-message" }) %>
+<%= f.collection_select(:period_id, Period.all, :id, :name, {},{class: "form-message" }) %>
 </div>
 <%= f.submit '送信', class: 'form-submit' %>
 <% end %>

@@ -60,6 +60,14 @@
     </div>
     <div class="invest-title">
     <%= @group.name %>
+    <div class="invest-users">
+    <% @group.users.each do |user| %>
+    <%= user.nickname %>
+    <% end %>
+    </div>
+  
+
+
     </div>
     <div class="invest-total">
     <p>追加実装</p>
@@ -70,7 +78,7 @@
   <%= month_calendar events: @investments do |date, investments| %>
   <%= date.day %>
   <% investments.each do|investment|%>
-  <div><%= investment.money %></div>
+  <%= link_to "#{investment.money.to_s(:delimited)}円", group_investment_path(id: investment.id) %>
   <% end %>
   <% end %>
   </div>
