@@ -1,7 +1,23 @@
 <div class='wrapper'>
  
-<%= render "shared/side_bar" %>
+ <%= render "shared/side_bar" %>
 
-<%= render "shared/main"%>
+ <div class="investments">
+    
+    <% if user_signed_in? %>
+    <div class="invest-header">
+    <p>メモ　ここはグループのトップページ　グループ未選択時</p>
+    </div>
+    <div class="calendar">
+    <%= month_calendar do |date| %>
+    <%= date.day %>
+    <% end %>
+    </div>
+    </div>
+    <% else %>
+    <img src="https://thinklistenlearn.com/wp-content/uploads/Demo-5.jpg" width="900px">
+    <% end %>
+    </div>
+ </div>
 
 </div>

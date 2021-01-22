@@ -2,7 +2,7 @@ class InvestmentsController < ApplicationController
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @group = Group.find(params[:group_id])   
+    @group = Group.find(params[:group_id])
     @investments = @group.investments
   end
 
@@ -30,25 +30,24 @@ class InvestmentsController < ApplicationController
   def update
     if @investment.update(investment_params)
       redirect_to group_investment_path
-     else
+    else
       render :edit
-     end
+    end
   end
 
   def destroy
     @investment.destroy
-    redirect_to  :action => 'index'
+    redirect_to action: 'index'
   end
 
   private
 
   def investment_params
-    params.require(:investment).permit(:content,:start_time,:money,:category_id,:account_id,:period_id).merge(user_id: current_user.id)
+    params.require(:investment).permit(:content, :start_time, :money, :category_id, :account_id,
+                                       :period_id).merge(user_id: current_user.id)
   end
 
   def set_investment
-    @investment = Investment.find(params[:id]) 
+    @investment = Investment.find(params[:id])
   end
-
-
 end

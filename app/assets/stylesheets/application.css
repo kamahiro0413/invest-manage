@@ -19,31 +19,16 @@
    box-sizing: border-box;
  }
 
- /* 新規登録 */
- .contents-row {
-  position: relative;
-
- }
-
- footer {
-   position: absolute;
-   bottom: 0;
-   width: 100vw;
- }
-
- body {
-   background-color: #ffffe0;
-   height: 100vh;
- }
-
- .header {
+/* ヘッダー */
+.header {
   background-color: #6bb6ff;
-  height: 70px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  top: 0;
 }
 
 .header-title {
@@ -89,8 +74,86 @@
   color: #4f96f6;
 }
 
+
+/* メイン */
+body {
+  background-color: #ffffe0;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+
+
+
+/* サイドバー */
+.side-bar {
+  width: 300px;
+  background-color: #f4f4f4;
+  margin: 20px;
+  overflow: scroll;
+}
+
+/* サイドバー ユーザー */
+.login-user-left {
+  align-self: start;
+  margin: 5px;
+  font-weight: bolder;
+}
+
+.login-user {
+  height: 60px;
+  width: 300px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.login-user-name {
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+/* サイドバー グループ作成ボタン */
+.new-group {
+  background-color: #4f96f6;
+  margin: 3px;
+  margin-bottom: 10px;
+  border: outset;
+  text-align: center;
+  padding: 8px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.new-group:active {
+  transform: translateY(4px);
+  border-bottom: none;
+  margin-bottom: 13px;
+}
+
+.new-group a {
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+}
+
+/* サイドバー グループ一覧 */
+.group-title {
+  background-color: #6bb6ff;
+  text-align: center;
+  font-size: 19px;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding: 2px;
+}
+
 .group-name {
   text-decoration: none;
+  color: #524e4d;
 }
 
 .group {
@@ -104,4 +167,161 @@
   padding-bottom: 4px;
   border: darkgray solid thin;
   text-decoration: none;
+}
+
+.group-form {
+  width: 80%;
+  background-color: pink;
+  justify-content: center;
+}
+
+/* 投資カレンダー */
+.investments {
+  width: calc(100vw - 300px);
+  background-color: #f4f4f4;
+  margin: 20px 20px 20px 0;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  /* background-image: url(hiyoko.png); */
+}
+
+/* カレンダーヘッダー部 */
+.invest-header {
+  height: 40px;
+  background-color: white;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  box-sizing: border-box;
+  
+}
+
+.invest-botton {
+  background-color: #4f96f6;
+  margin: 0;
+  width: 180px;
+  padding: 2px;
+  padding-top: 6px;
+  border: outset;
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.invest-botton a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+}
+
+.invest-botton i {
+  color: white;
+}
+
+.invest-botton:active {
+  transform: translateY(2px);
+  border-bottom: none;
+  margin-bottom: 2px;
+}
+
+.invest-title {
+  background-color: blue;
+  width: 100%;
+  margin: auto;
+  padding: 5px;
+  display: flex;
+}
+
+.invest-total {
+  background-color: yellow;
+  width: 100px;
+  font-size: 10px;
+  margin: auto;
+  padding: 5px;
+}
+
+.invest-users {
+  background-color: pink;
+  width: 300px;
+}
+
+
+/* ユーザー新規登録 */
+.contents-row {
+  position: relative;
+
+}
+
+/* 入力フォーム */
+.form {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: center;
+  width: 400px;
+  background-color: white;
+  border-width: thin;
+  border-style: solid gray;
+  border-radius:7px;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+}
+
+.form-title {
+  height: 50px;
+  background-color: #4f96f6;
+  text-align: center;
+  padding: auto;
+  display: grid;
+  border-radius:7px 7px 0 0;
+}
+
+.form-title h3 {
+  margin: auto;
+  color: white;
+}
+.field {
+  margin: 20px 25px;
+}
+
+.actions {
+ text-align: center;
+ margin-top: 30px;
+ margin-bottom: 30px;
+}
+
+.field label {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+
+
+
+
+/* フッター */
+.footer {
+  position: absolute;
+  position: sticky;
+  bottom: 0;
+  width: 100vw;
+  background-color: #7b7856;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.footer p {
+  margin: auto;
 }

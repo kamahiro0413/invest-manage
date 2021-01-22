@@ -6,14 +6,14 @@ RSpec.describe Group, type: :model do
       @group = FactoryBot.build(:group)
     end
 
-    it "nameがあれば作成できる" do
+    it 'nameがあれば作成できる' do
       expect(@group).to be_valid
     end
 
-    it "nameが空では登録できないこと" do
+    it 'nameが空では登録できないこと' do
       @group.name = nil
       @group.valid?
-      expect(@group.errors.full_messages).to include("Nameを入力してください")
+      expect(@group.errors.full_messages).to include('Nameを入力してください')
     end
   end
 end

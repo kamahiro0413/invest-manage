@@ -1,5 +1,4 @@
 class Category < ActiveHash::Base
-
   self.data = [
     { id: 1,  name: '---------' },
     { id: 2,  name: '貯金' },
@@ -12,10 +11,9 @@ class Category < ActiveHash::Base
     { id: 9,  name: 'コモディティ' },
     { id: 10, name: '暗号資産' },
     { id: 11, name: '外貨預金' },
-    { id: 12, name: 'その他'}
+    { id: 12, name: 'その他' }
   ]
 
   include ActiveHash::Associations
   has_many :investments
-  
 end

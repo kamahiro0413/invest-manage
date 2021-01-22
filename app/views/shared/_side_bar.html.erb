@@ -1,47 +1,48 @@
  <div class="side-bar">
   <div class="login-user">
    <div class="login-user-left">
-   <% if user_signed_in? %>
-    <p>こんにちは！</p>
+     <% if user_signed_in? %>
+      <p>こんにちは！</p>
      <% else %>
-    <p>ようこそ！</p>
-    <% end %>
+      <p>ようこそ！</p>
+     <% end %>
    </div>
    <div class="login-user-name">
-    <% if user_signed_in? %>
-    <%= "#{current_user.nickname} さん" %>
-    <% else %>
-    <p><span><b>ゲスト</b></span> さん</p>
-    <% end %>
+     <% if user_signed_in? %>
+      <%= "#{current_user.nickname} さん" %>
+     <% else %>
+      <p><span><b>ゲスト</b></span> さん</p>
+     <% end %>
    </div>
   </div>
+
   <div class="groups">
    <div class="new-group">
     <% if user_signed_in?%>
-   <a href="/groups/new"><i class="fas fa-pencil-alt" ></i>&nbsp;&nbsp;新しいグループを作成</a>
+     <a href="/groups/new"><i class="fas fa-pencil-alt" ></i>&nbsp;&nbsp;新しいグループを作成</a>
     <% else %>
-  <a href="/users/sign_in"><i class="fas fa-sign-in-alt" ></i>&nbsp;&nbsp;ログインでグループ作成可能</a>
-  <% end %>
+     <a href="/users/sign_in"><i class="fas fa-sign-in-alt" ></i>&nbsp;&nbsp;ログインでグループ作成可能</a>
+    <% end %>
    </div>
    <div class="group-title">
     <p><i class="fas fa-list"></i>&nbsp;&nbsp;グループ一覧</p>
    </div>
     <% if user_signed_in? %>
      <% current_user.groups.each do |group| %>
-    <div class="group">
-        <%= link_to "#{group.name}", group_investments_path(group.id), class: "group-name" %>
-    </div>
-  <% end %>
+     <div class="group">
+       <%= link_to "#{group.name}", group_investments_path(group.id), class: "group-name" %>
+     </div>
+     <% end %>
     <% else %>
-    <div class="group">
-     <p>【デモ】自分専用<p>
-    </div>
-    <div class="group">
-     <p>【デモ】かぞくみんな<p>
-    </div>
-    <div class="group">
-     <p>【デモ】子供の学費積立<p>
-    </div>
+      <div class="group">
+      <p>【デモ】自分専用<p>
+      </div>
+      <div class="group">
+      <p>【デモ】かぞくみんな<p>
+      </div>
+      <div class="group">
+      <p>【デモ】子供の学費積立<p>
+      </div>
     <% end %>
   </div>
  </div>

@@ -11,10 +11,9 @@ class Account < ActiveHash::Base
     { id: 9,  name: 'Coincheck' },
     { id: 10, name: 'bitFlyer' },
     { id: 11, name: '貯金箱' },
-    { id: 12, name: 'その他' },
+    { id: 12, name: 'その他' }
   ]
 
   include ActiveHash::Associations
   has_many :investments
-  
 end

@@ -1,36 +1,36 @@
-<div class="contents-row">
-  <div class="container">
-    <h2>新規登録</h2>
-
-    <%= form_with model: @user, url: user_registration_path, id: 'new_user', local:true do |f| %>
+<div class="wrapper">
+  <%= render "shared/side_bar" %>
+  <div class="investments">
+    
+  <div class="form">
+    <div class="form-group">
+      <div class="form-title">
+        <h3><i class="fas fa-address-card"></i>  新規登録</h3>
+      </div>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', local:true do |f| %>
       <%= devise_error_messages! %>
-
-      <div class="field">
-        <%= f.label "お名前" %><br />
-        <%= f.text_field :nickname, autofocus: true %>
+        <div class="field">
+          <label for="formGroupExampleInput"><i class="fas fa-user"></i> お名前</label>
+          <%= f.text_field :nickname, autofocus: true , class: "form-control" %>
+        </div>
+        <div class="field">
+          <label for="formGroupExampleInput"><i class="far fa-envelope"></i> メールアドレス</label>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+        <div class="field">
+          <label for="formGroupExampleInput"><i class="fas fa-unlock-alt"></i> パスワード</label>
+          <% if @minimum_password_length %><em>(<%= @minimum_password_length %>文字以上)</em><% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        </div>
+        <div class="field">
+          <label for="formGroupExampleInput"><i class="fas fa-unlock-alt"></i> パスワード(確認)</label>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "登録", class:"btn btn-primary btn-lg" %>
+        </div>
+      <% end %>
       </div>
-
-      <div class="field">
-        <%= f.label "メールアドレス" %><br />
-        <%= f.email_field :email %>
-      </div>
-
-      <div class="field">
-        <%= f.label "パスワード" %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %>文字以上)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label "パスワード(確認)"%><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "登録" %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>

@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -13,8 +14,7 @@
   </head>
 
   <body>
-    <%# ヘッダー %>
-    <header class="header">
+   <header class="header">
      <div class="header-title">
       <div class="logo">
        <p>ロゴ</p>
@@ -33,12 +33,12 @@
           <%= link_to "新規登録", new_user_registration_path, class: "log-in-botton" %>
         <% end %>
      </div>
-    </div>
-    </header>
+   </div>
+   </header>
 
     <%= yield %>
-    <footer class="footer">
+   <footer class="footer">
     <p>Copyright 2021 H.kamada</p>
-  </footer>
+   </footer>
   </body>
 </html>

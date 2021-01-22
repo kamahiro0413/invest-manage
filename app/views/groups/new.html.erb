@@ -1,34 +1,43 @@
-<div class='chat-room-form'>
-  <h1>新しいグループを作成</h1>
-  <%=form_with model: @group, local: true do |f|%>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <%= f.label :グループ名, class: 'chat-room-form__label'%>
-      </div>
-      <div class='chat-room-form__field--right'>
-        <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'グループ名を入力してください'%>
-      </div>
+<div class='wrapper'>
+
+<%= render "shared/side_bar" %>
+
+<div class="investments">
+  <div class="group-form">
+    <div class="invest-header">
+    <div class='group-new'>
+      <h1>新しいグループを作成</h1>
     </div>
-    <div class='chat-room-form__field'>
+     </div>
+     <div class="group-form2">    
+              <%=form_with model: @group, local: true do |f|%>
+              <div class='chat-room-form__field'>
+                <div class='chat-room-form__field--left'>
+                  <%= f.label :グループ名, class: 'chat-room-form__label'%>
+                </div>
+                <div class='chat-room-form__field--right'>
+                  <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'グループ名を入力してください'%>
+                </div>
+              </div>
+                
+              <div class='chat-room-form__field'>
+                <div class='chat-room-form__field--right'>
+                  <select name="group[user_ids][]">
+                  <option value="">追加したいメンバーを選択</option>
+                  <% User.where.not(id: current_user.id).each do |user| %>
+                    <option value=<%= user.id %>><%= user.nickname %></option>
+                  <% end %>
+                  </select>
+                  <input name="group[user_ids][]" type="hidden" value=<%= current_user.id %>>
+                </div>
+              </div>
+              <div class='chat-room-form__field'>
+                <div class='chat-room-form__field--right'>
+                <%= f.submit class: 'chat-room-form__action-btn'%>
+                </div>
+                <% end %>
+              </div>
+       </div>
     </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-      </div>
-      <div class='chat-room-form__field--right'>
-      <select name="group[user_ids][]">
-          <option value="">追加したいメンバーを選択</option>
-          <% User.where.not(id: current_user.id).each do |user| %>
-            <option value=<%= user.id %>><%= user.nickname %></option>
-          <% end %>
-        </select>
-        <input name="group[user_ids][]" type="hidden" value=<%= current_user.id %>>
-      </div>
-    </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'></div>
-      <div class='chat-room-form__field--right'>
-        <%= f.submit class: 'chat-room-form__action-btn'%>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>
