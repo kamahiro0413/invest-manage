@@ -4,6 +4,9 @@
 
   <div class="investments">
     <% if user_signed_in? %>
+      <div class="invest-header">
+       <%= "#{}" %>
+      </div>
       <div class="calendar">
        <%= month_calendar do |date| %>
         <%= date.day %>

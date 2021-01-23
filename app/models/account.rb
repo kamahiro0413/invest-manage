@@ -1,6 +1,6 @@
 class Account < ActiveHash::Base
   self.data = [
-    { id: 1,  name: '----------------' },
+    { id: 1,  name: '選択してください' },
     { id: 2,  name: '三菱UFJ銀行' },
     { id: 3,  name: '楽天銀行' },
     { id: 4,  name: '住信SBIネット銀行' },

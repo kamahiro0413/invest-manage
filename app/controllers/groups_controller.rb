@@ -1,5 +1,8 @@
 class GroupsController < ApplicationController
   def index
+    # @user = User.find(params[:id])
+    # @group = Group.includes(:user)
+    # @investment = Investment.includes(:user)
   end
 
   def new

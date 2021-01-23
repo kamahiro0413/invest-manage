@@ -1,91 +1,34 @@
-<%# メイン %>
 <div class="wrapper">
 
-<%# サイドバー %>
- <div class="side-bar">
-  <div class="login-user">
-   <div class="login-user-left">
-   <% if user_signed_in? %>
-    <p>こんにちは！</p>
-     <% else %>
-    <p>ようこそ！</p>
-    <% end %>
-   </div>
-   <div class="login-user-name">
-    <% if user_signed_in? %>
-    <%= "#{current_user.nickname} さん" %>
-    <% else %>
-    <p><span><b>ゲスト</b></span> さん</p>
-    <% end %>
-   </div>
-  </div>
-  <div class="groups">
-   <div class="new-group">
-    <% if user_signed_in?%>
-     <a href="/groups/new"><i class="fas fa-pencil-alt" ></i>&nbsp;&nbsp;新しいグループを作成</a>
-    <% else %>
-     <a href="/users/sign_in"><i class="fas fa-sign-in-alt" ></i>&nbsp;&nbsp;ログインでグループ作成可能</a>
-    <% end %>
-  </div>
-   <div class="group-title">
-    <p><i class="fas fa-list"></i>&nbsp;&nbsp;グループ一覧</p>
-   </div>
-    <% if user_signed_in? %>
-     <% current_user.groups.each do |group| %>
-    <div class="group">
-        <%= link_to "#{group.name}", group_investments_path(group.id), class: "group-name" %>
+  <%= render "shared/side_bar" %>
+ 
+  <div class="investments">
+    <div class="invest-header">
+      <div class="invest-botton">
+       <i class="fas fa-donate"><%= link_to " 情報を入力", new_group_investment_path(@group) %></i>
+      </div>
+      <div class="invest-title">
+       <%= @group.name %>
+       <div class="invest-users">
+         <% @group.users.each do |user| %>
+         <%= user.nickname %>
+         <% end %>
+       </div>
+      </div>
+      <div class="invest-total">
+        <%= "グループ内資産#{@total}円" %>
+      </div>
     </div>
-  <% end %>
-    <% else %>
-    <div class="group">
-     <p>【デモ】自分専用<p>
-    </div>
-    <div class="group">
-     <p>【デモ】かぞくみんな<p>
-    </div>
-    <div class="group">
-     <p>【デモ】子供の学費積立<p>
-    </div>
-    <% end %>
-  </div>
- </div>
 
- <%# 投資カレンダー  %>
- <div class="investments">
-  <% if user_signed_in? %>
-  <div class="invest-header">
-    <div class="invest-botton">
-    <%# <a href="/groups/investments/new"><i class="fas fa-piggy-bank" ></i>&nbsp;&nbsp;情報を入力</a> %>
-    <i class="fas fa-piggy-bank" ><%= link_to " 情報を入力", new_group_investment_path(@group) %></i>
-    </div>
-    <div class="invest-title">
-    <%= @group.name %>
-    <div class="invest-users">
-    <% @group.users.each do |user| %>
-    <%= user.nickname %>
-    <% end %>
-    </div>
-  
-
-
-    </div>
-    <div class="invest-total">
-    <p>追加実装</p>
-    <p>(仮)</p>
-    </div>
+    <div class="calendar">
+      <%= month_calendar events: @investments do |date, investments| %>
+      <%= date.day %>
+      <% investments.each do|investment|%>
+      <p><%= link_to "#{investment.money.to_s(:delimited)}円 ", group_investment_path(id: investment.id) %><%= investment.user.nickname %></p>
+      
+      <% end %>
+      <% end %>
+      </div>
+      </div>
   </div>
-  <div class="calendar">
-  <%= month_calendar events: @investments do |date, investments| %>
-  <%= date.day %>
-  <% investments.each do|investment|%>
-  <p><%= link_to "#{investment.money.to_s(:delimited)}円", group_investment_path(id: investment.id) %></p>
-  <%= investment.user.nickname %>
-  <% end %>
-  <% end %>
-  </div>
- </div>
- <% else %>
- <img src="https://thinklistenlearn.com/wp-content/uploads/Demo-5.jpg" width="900px">
- <% end %>
- </div>
 </div>

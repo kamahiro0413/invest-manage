@@ -4,6 +4,7 @@ class InvestmentsController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
     @investments = @group.investments
+    @total = Investment.where(group_id: @group).sum(:money)
   end
 
   def new
