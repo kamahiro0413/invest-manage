@@ -1,25 +1,46 @@
-<p>編集ページ</p>
-<p>ルーティングメモ</p>
-<p>   edit_group_investment GET    /groups/:group_id/investments/:id/edit(.:format)  </p>
+<div class="wrapper">
+  
+  <%= render "shared/side_bar" %>
 
-<p>入力ページ</p>
-<%= form_with model:@investment,class:"form",url:group_investment_path(id: @investment.id),local: true do |f| %>
-<div class="form-input">
-<p>日付</p>
-<%= f.date_field :start_time %>
-<p>金額</p>
-<%= f.text_field :money, class: "form-message" %>
+   <div class="investments">
+    <div class="form">
+      <div class="form-group">
+        <div class="form-title">
+          <h3><i class="fas fa-donate"></i>  情報を編集</h3>
+        </div>
+        <%= form_with model:@investment,url:group_investment_path(id: @investment.id),local: true do |f| %>
+        <div class="field">
+            <label for="formGroupExampleInput"> 日付</label>
+            <%= f.date_field :start_time, class: "form-control" %>
+        </div>
+        <div class="field">
+            <label for="formGroupExampleInput"><i class="fas fa-yen-sign"></i> 金額</label>
+            <%= f.text_field :money, class: "form-control",placeholder: "半角数字のみ入力してください" %>
+        </div>
+        <div class="field">
+            <label for="formGroupExampleInput"> 内容</label>
+            <%= f.text_field :content, class: "form-control" %>
+        </div>
+        <div class="field">
+            <label for="formGroupExampleInput"> 種類</label>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {},{class: "form-control" }) %>
+        </div>
+        <div class="field">
+            <label for="formGroupExampleInput"> 口座</label>
+            <%= f.collection_select(:account_id, Account.all, :id, :name, {},{class: "form-control" }) %>
+        </div>
+        <div class="field">
+            <label for="formGroupExampleInput"> 期間</label>
+            <%= f.collection_select(:period_id, Period.all, :id, :name, {},{class: "form-control" }) %>
+        </div>
+        <div class="actions">
+          <%= f.submit " 修正内容を保存 ", class:"btn btn-primary btn-lg" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+      
 
-<p>内容</p>
-<%= f.text_field :content, class: "form-message" %>
-
-<p>種別</p>
-<%= f.collection_select(:category_id, Category.all, :id, :name, {},{class: "form-message" }) %>
-
-<p>口座</p>
-<%= f.collection_select(:account_id, Account.all, :id, :name, {},{class: "form-message" }) %>
-<p>期間</p>
-<%= f.collection_select(:period_id, Period.all, :id, :name, {},{class: "form-message" }) %>
 </div>
-<%= f.submit '送信', class: 'form-submit' %>
-<% end %>
+
