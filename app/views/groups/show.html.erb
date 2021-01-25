@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <%= render "shared/side_bar" %>
+
+  <div class="investments">
+      
+        <p>グループ名：<%= @group.name %></P>
+        <p>グループのみの合計：<%= @total %>円</p>
+        <p>所属メンバーのみ表示：<% @group.users.each do |user| %><%= " #{user.nickname} " %><% end %></p>
+        <p>カテゴリー2の合計<%= @category2 %>円</p>
+        <p>カテゴリー3の合計<%= @category3 %>円</p>
+        <p>カテゴリー4の合計<%= @category4 %>円</p>
+        <p>カテゴリー5の合計<%= @category5 %>円</p>
+        <p>カテゴリー6の合計<%= @group.investments.where(category_id: "6").pluck(:money).sum %>円</p>
+        <%# <p>グループ内のパラメータ情報すべて：<%= @investment.each do |investment|%>
+      
+    <canvas id="myPieChart"></canvas>
+    <script>
+      var ctx = document.getElementById("myPieChart");
+      var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ["カテゴリー2", "カテゴリー3", "カテゴリー4", "カテゴリー5"],
+          datasets: [{
+              backgroundColor: [
+                  "#BB5179",
+                  "#FAFF67",
+                  "#58A27C",
+                  "#3C00FF"
+              ],
+              data: [<%= @category2 %>, <%= @category3 %>,<%= @category4 %>,<%= @category5 %>]
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: '【実験】カテゴリーごとの割合'
+          }
+        }
+      });
+      </script>
+  </div>
+</div>
