@@ -2,41 +2,146 @@
   <%= render "shared/side_bar" %>
 
   <div class="investments">
-      
-        <p>グループ名：<%= @group.name %></P>
-        <p>グループのみの合計：<%= @total %>円</p>
-        <p>所属メンバーのみ表示：<% @group.users.each do |user| %><%= " #{user.nickname} " %><% end %></p>
-        <p>カテゴリー2の合計<%= @category2 %>円</p>
-        <p>カテゴリー3の合計<%= @category3 %>円</p>
-        <p>カテゴリー4の合計<%= @category4 %>円</p>
-        <p>カテゴリー5の合計<%= @category5 %>円</p>
-        <p>カテゴリー6の合計<%= @group.investments.where(category_id: "6").pluck(:money).sum %>円</p>
-        <%# <p>グループ内のパラメータ情報すべて：<%= @investment.each do |investment|%>
-      
-    <canvas id="myPieChart"></canvas>
-    <script>
-      var ctx = document.getElementById("myPieChart");
-      var myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          labels: ["カテゴリー2", "カテゴリー3", "カテゴリー4", "カテゴリー5"],
-          datasets: [{
-              backgroundColor: [
-                  "#BB5179",
-                  "#FAFF67",
-                  "#58A27C",
-                  "#3C00FF"
-              ],
-              data: [<%= @category2 %>, <%= @category3 %>,<%= @category4 %>,<%= @category5 %>]
-          }]
-        },
-        options: {
-          title: {
-            display: true,
-            text: '【実験】カテゴリーごとの割合'
-          }
-        }
-      });
-      </script>
+    <div class="group-date">
+      <div class="category-header">
+       <p><i class="fas fa-user-friends"></i> <%= @group.name %> 詳細情報</p>
+      </div>
+      <div class="category-date">
+     <div class="category-chart">
+        <div class="group-names">     
+          <div>所属メンバー：</div>
+          <div><% @group.users.each do |user| %><%= " #{user.nickname} " %><% end %></div>             
+        </div>
+
+          <div class="chart">
+          <canvas id="myDoughnutChart" width="550"></canvas>
+          <script>
+            var ctx = document.getElementById("myDoughnutChart");
+            var myDoughnutChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ["貯金","国内株式", "外国株式", "投資信託","債券","コモディティ","暗号資産","その他"],
+                datasets: [{
+                    backgroundColor: [
+                      "#f69679","#fecf8d","#fff799","#d0e39b","#94bcb7","#8490c8","#a888be","#dddddd"
+                    ],
+                    data: [<%= @category2 %>, <%= @category3 %>,<%= @category4 %>,<%= @category5 %>,
+                    <%= @category6 %>,<%= @category7 %>,<%= @category8 %>,<%= @category9 %>]
+                  }]
+                },
+              options: {
+                title: {
+                  display: true,
+                  text: ' 種類別の内訳'
+                      }
+                    }
+                  });
+          </script>
+          </div>
+        </div>
+        <table class="table table-striped m-4">
+          <thead class="thead-title">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"><b>資産合計</b></th>
+              <th scope="col"><b><%= @total.to_s(:delimited) %> 円</b></th>     
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td>貯金</td>
+              <td><%= @category2.to_s(:delimited) %> 円</td>  
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>国内株式</td>
+              <td><%= @category3.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>外国株式</td>
+              <td><%= @category4.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>投資信託</td>
+              <td><%= @category5.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>債券</td>
+              <td><%= @category6.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>コモディティ</td>
+              <td><%= @category7.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>暗号資産</td>
+              <td><%= @category8.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>その他</td>
+              <td><%= @category9.to_s(:delimited) %> 円</td>
+            </tr>
+          </tbody>
+        </table>              
+      </div>
+      <div class="category-date">
+      <div class="period">
+       <table class="table table-striped ">
+       <tbody>
+       <p class="p-2"><b>期間ごと</b></p>
+            <tr>
+              <th scope="row"></th>
+              <td>短期</td>
+              <td><%= @short_sum.to_s(:delimited) %> 円</td>  
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>中期</td>
+              <td><%= @middle_sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>長期</td>
+              <td><%= @long_sum.to_s(:delimited) %>, 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>指定なし</td>
+              <td><%= @not_period.to_s(:delimited) %> 円</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>  
+        <div class="chart">
+          <canvas id="myPieChart" width="500"></canvas>
+          <script>
+            var ctx = document.getElementById("myPieChart");
+            var myDoughnutChart = new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: [ "短期", "中期", "長期", "指定なし"],
+                datasets: [{
+                    backgroundColor: [ "#f69679", "#9fca99", "#8aa3b9", "#dddddd"],
+                    data: [<%= @short_sum %>, <%= @middle_sum %>,<%= @long_sum %>,<%= @not_period %>]
+                  }]
+                },
+              options: {
+                title: {
+                  display: true,
+                  text: ' 期間ごとの内訳'
+                      }
+                    }
+                  });
+          </script>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
