@@ -33,15 +33,20 @@
 
 .header-title {
   display: flex;
-}
-
-.logo {
-  border: dashed;
-  margin: 0 20px ;
+  /* justify-content: center; */
+  /* background-color: yellow; */
+  padding-bottom: 7px;
+  align-items: center;
 }
 
 .header-app-name {
-  font-size: 30px;
+  margin-left: 75px;
+  width: 200px;
+  font-size: 55px;
+  /* font-weight: bold; */
+  font-family: "Nico Moji";
+  /* background-color: pink; */
+  /* padding: 10px; */
 }
 
 .header-botton {
@@ -77,7 +82,7 @@
 
 /* メイン */
 body {
-  background-color: #ffffe0;
+  background-color: #fffff0;
   height: 100%;
 }
 
@@ -85,8 +90,6 @@ body {
   display: flex;
   height: 100vh;
 }
-
-
 
 
 /* サイドバー */
@@ -189,7 +192,6 @@ body {
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  /* background-image: url(hiyoko.png); */
 }
 
 /* カレンダーヘッダー部 */
@@ -378,7 +380,7 @@ body {
 
 /* グループ詳細情報 */
 .group-date {
-  background-color: white;
+  background-color: #fffffa ;
   margin: 5px;
   display: flex;
   flex-direction: column;
