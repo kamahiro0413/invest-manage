@@ -1,19 +1,16 @@
 class InvestmentsController < ApplicationController
+  before_action :set_group, only: [:index, :create, :new]
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @group = Group.find(params[:group_id])
     @investments = @group.investments
-    @total = Investment.where(group_id: @group).sum(:money)
   end
 
   def new
     @investment = Investment.new
-    @group = Group.find(params[:group_id])
   end
 
   def create
-    @group = Group.find(params[:group_id])
     @investment = @group.investments.new(investment_params)
     if @investment.save
       redirect_to group_investments_path(@group)
@@ -50,5 +47,9 @@ class InvestmentsController < ApplicationController
 
   def set_investment
     @investment = Investment.find(params[:id])
+  end
+
+  def set_group
+    @group = Group.find(params[:group_id])
   end
 end
