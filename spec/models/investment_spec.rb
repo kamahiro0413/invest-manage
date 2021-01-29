@@ -47,6 +47,12 @@ RSpec.describe Investment, type: :model do
         expect(@investment.errors.full_messages).to include('Moneyを入力してください')
       end
 
+      it 'moneyは全角だと登録できない' do
+        @investment.money = "６０００"
+        @investment.valid?
+        expect(@investment.errors.full_messages).to include('Moneyは半角数字で入力してください')
+      end
+
       it 'category_idが空だと登録できない' do
         @investment.category_id = nil
         @investment.valid?

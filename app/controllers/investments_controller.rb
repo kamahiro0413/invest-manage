@@ -1,4 +1,5 @@
 class InvestmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_group, only: [:index, :create, :new]
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
 
@@ -23,6 +24,9 @@ class InvestmentsController < ApplicationController
   end
 
   def edit
+    unless @investment.user.id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
@@ -34,8 +38,10 @@ class InvestmentsController < ApplicationController
   end
 
   def destroy
-    @investment.destroy
-    redirect_to action: 'index'
+    if @investment.user.id == current_user.id
+      @investment.destroy
+      redirect_to action: 'index'
+    end
   end
 
   private

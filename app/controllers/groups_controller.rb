@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!,except: :index
   before_action :set_total, only: :show
   before_action :set_category_sum, only: :show
   before_action :set_period_sum, only: :show

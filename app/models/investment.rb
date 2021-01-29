@@ -9,7 +9,7 @@ class Investment < ApplicationRecord
 
   with_options presence: true do
     validates :start_time
-    validates :money
+    validates :money, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
     validates :category_id, numericality: { other_than: 1, message: 'を選択してください' }
     validates :account_id, numericality: { other_than: 1, message: 'を選択してください' }
     validates :period_id
