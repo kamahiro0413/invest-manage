@@ -21,9 +21,9 @@
       <div class="header-app-name">カネんだ</div>
      </div>
      <div class="header-botton">
-        <a href="/"><i class="fas fa-home fa-2x" ></i></a>
-       
+        <a href="/"><i class="fas fa-home fa-2x" ></i></a>      
        <% if user_signed_in? %>
+          <%= link_to user_path(current_user.id) do %><i class="far fa-user-circle fa-2x"></i><% end %>
           <%= link_to "ログアウト",destroy_user_session_path, method: :delete, class:"log-in-botton" %>
         <% else %>
           <%= link_to "ログイン", new_user_session_path, class: "log-in-botton" %>

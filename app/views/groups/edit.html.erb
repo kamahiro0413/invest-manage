@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <%= render "shared/side_bar" %>
+
+  <div class="investments">
+    <div class="form-back">
+      <div class="form">
+        <div class="form-group">
+          <div class="form-title">
+            <h3><i class="fas fa-pencil-alt" ></i>  グループを編集</h3>
+          </div>
+          <%=form_with model: @group, local: true do |f|%>
+            <div class="field">
+              <label for="formGroupExampleInput"><i class="fas fa-user-friends"></i> グループ名</label>
+              <%= f.text_field :name, autofocus: true , class: "form-control m-1" %>
+            </div>          
+            <div class="actions">
+            <%= f.submit " 変更 ", class:"btn btn-primary btn-lg" %>
+            <%= link_to " もどる ",group_path ,class:"btn btn-success btn-lg"%>
+            <%= link_to group_path , method: :delete, data: {confirm: "全員分の情報が削除されます！本当によろしいですか？"} do%>
+            <i class="fas fa-trash-alt fa-3x"></i>
+            <% end %>
+            </div> 
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

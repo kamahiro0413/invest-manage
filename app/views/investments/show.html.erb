@@ -3,62 +3,69 @@
   <%= render "shared/side_bar" %>
 
   <div class="investments">
-    <div class="form">
-      <div class="form-group">
-        <div class="form-title">
-          <h3><i class="fas fa-info-circle"></i>  詳細情報</h3>
-        </div>
-        <div class="field">
-          <label for="formGroupExampleInput"> 投稿者</label>
-          <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
-           <%= @investment.user.nickname %>
+    <div class="invest-back">
+      <div class="form">
+        <div class="form-group">
+          <div class="form-title">
+            <h3><i class="fas fa-info-circle"></i>  詳細情報</h3>
           </div>
-        </div>
-        <div class="field">
-          <label for="formGroupExampleInput"> 投稿日</label>
-          <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
-           <%= @investment.start_time.strftime('%Y年%-m月%d日') %>
-          </div>
-        </div>
-        <div class="field">
-          <label for="formGroupExampleInput"> 金額</label>
-          <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
-           <%= "#{@investment.money.to_s(:delimited)} 円" %>
-          </div>
-        </div>
-        <div class="field">
-          <label for="formGroupExampleInput"> 内容</label>
-          <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
-           <%= @investment.content %>
-          </div>
-        </div>
-        <div class="field">
-          <label for="formGroupExampleInput"> 種類</label>
-          <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
-           <%= @investment.category.name %>
-          </div>
-        </div>
-        <div class="field">
-          <label for="formGroupExampleInput"> 口座</label>
-          <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
-           <%= @investment.account.name %>
-          </div>
-        </div>
-        <% unless @investment.period.id == 1 %>
           <div class="field">
-            <label for="formGroupExampleInput"> 期間</label>
+            <label for="formGroupExampleInput"> 投稿者</label>
             <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
-            <%= @investment.period.name %>
+            <%= @investment.user.nickname %>
             </div>
           </div>
-        <% end %>
-          
-          <% if current_user.id == @investment.user.id %>
-          <div class="actions">     
-          <%= link_to " 情報を編集 ",edit_group_investment_path(id: @investment.id) ,class:"btn btn-primary"%>
-          <%= link_to " 削除する ",group_investment_path(id: @investment.id), method: :delete ,class:"btn btn-danger"%>
+          <div class="field">
+            <label for="formGroupExampleInput"> 投稿日</label>
+            <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
+            <%= @investment.start_time.strftime('%Y年%-m月%d日') %>
+            </div>
           </div>
-        <% end %>
+          <div class="field">
+            <label for="formGroupExampleInput"> 金額</label>
+            <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
+            <%= "#{@investment.money.to_s(:delimited)} 円" %>
+            </div>
+          </div>
+          <div class="field">
+            <label for="formGroupExampleInput"> 内容</label>
+            <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
+            <%= @investment.content %>
+            </div>
+          </div>
+          <div class="field">
+            <label for="formGroupExampleInput"> 種類</label>
+            <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
+            <%= @investment.category.name %>
+            </div>
+          </div>
+          <div class="field">
+            <label for="formGroupExampleInput"> 口座</label>
+            <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
+            <%= @investment.account.name %>
+            </div>
+          </div>
+          <% unless @investment.period.id == 1 %>
+            <div class="field">
+              <label for="formGroupExampleInput"> 期間</label>
+              <div class="d-flex p-2 bd-highlight border-bottom justify-content-center">
+              <%= @investment.period.name %>
+              </div>
+            </div>
+          <% end %>
+            
+          <% if current_user.id == @investment.user.id %>
+            <div class="actions">
+              <%= link_to " もどる ", group_investments_path ,class:"btn btn-success"%>     
+              <%= link_to " 情報を編集 ",edit_group_investment_path(id: @investment.id) ,class:"btn btn-primary"%>
+              <%= link_to " 削除する ",group_investment_path(id: @investment.id), method: :delete ,class:"btn btn-danger"%>
+            </div>
+          <% else %>
+              <div class="actions">
+              <%= link_to " もどる ", group_investments_path ,class:"btn btn-success"%>
+              </div> 
+          <% end %>
+        </div>
       </div>
     </div>    
   </div>

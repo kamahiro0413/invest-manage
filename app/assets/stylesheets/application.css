@@ -33,8 +33,6 @@
 
 .header-title {
   display: flex;
-  /* justify-content: center; */
-  /* background-color: yellow; */
   padding-bottom: 7px;
   align-items: center;
 }
@@ -98,7 +96,8 @@ body {
 /* サイドバー */
 .side-bar {
   width: 300px;
-  background-color: #f4f4f4;
+  background-image: url("/images/background.jpg");
+  padding-bottom: 5px;
   margin: 20px;
   overflow: scroll;
 }
@@ -185,6 +184,7 @@ body {
   padding-bottom: 4px;
   border: darkgray solid thin;
   text-decoration: none;
+  border-radius: 4px;
 }
 
 .group:hover {
@@ -210,7 +210,6 @@ body {
   display: flex;
   text-align: center;
   box-sizing: border-box;
-  
 }
 
 .invest-botton {
@@ -279,7 +278,6 @@ body {
 }
 
 .invest-users {
-  background-color: pink;
   width: 300px;
 }
 
@@ -291,11 +289,27 @@ body {
 }
 
 /* 入力フォーム */
+.form-back {
+  background-image: url("/images/back.jpg");
+  background-repeat: repeat;
+  margin: 5px;
+  height: 100vh;
+  background-size: cover;
+}
+
 .form {
-  margin: 20px auto;
-  
-  justify-content: center;
+  margin: 50px auto ;
+  display: grid;
+  justify-items: center;
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  overflow: scroll;
+}
+
+.invest-back {
+  background-image: url("/images/back.jpg");
+  background-repeat: repeat;
+  margin: 5px;
+  background-size: cover;
 }
 
 .form p {
@@ -334,8 +348,6 @@ body {
   margin: 5px 25px 10px 25px;
 }
 
-
-
 .actions {
  text-align: center;
  margin-top: 30px;
@@ -350,8 +362,28 @@ body {
   margin-top: 5px;
 }
 
+.my-header {
+  height: 45px;
+  background-color: #6bb6ff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  padding: 6px 0;
+  border-radius:7px 7px 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.my-header p {
+  margin: auto;
+}
 
 /* カレンダー */
+.calendar p {
+  font-size: 14px;
+}
+
 .simple-calendar {
   text-align: center;
 }
@@ -401,6 +433,13 @@ body {
   color: white;
   padding: 6px 0;
   border-radius:7px 7px 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.category-header p {
+  margin: auto 100px;
 }
 
 .category-date {

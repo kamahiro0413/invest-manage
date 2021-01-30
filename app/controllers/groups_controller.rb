@@ -1,8 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!,except: :index
-  before_action :set_total, only: :show
-  before_action :set_category_sum, only: :show
-  before_action :set_period_sum, only: :show
+  before_action :authenticate_user!, except: :index
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -21,6 +19,23 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @investments = @group.investments
+  end
+
+  def edit
+  end
+
+  def update
+    if @group.update(group_params)
+      redirect_to group_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @group.destroy
+    redirect_to root_path
   end
 
   private
@@ -29,27 +44,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, user_ids: [])
   end
 
-  def set_total
+  def set_group
     @group = Group.find(params[:id])
-    @investments = @group.investments
-    @total = Investment.where(group_id: @group).sum(:money)
-  end
-
-  def set_category_sum
-    @category2 = @investments.where(category_id: '2').pluck(:money).sum
-    @category3 = @investments.where(category_id: '3').pluck(:money).sum
-    @category4 = @investments.where(category_id: '4').pluck(:money).sum
-    @category5 = @investments.where(category_id: '5').pluck(:money).sum
-    @category6 = @investments.where(category_id: '6').pluck(:money).sum
-    @category7 = @investments.where(category_id: '7').pluck(:money).sum
-    @category8 = @investments.where(category_id: '8').pluck(:money).sum
-    @category9 = @investments.where(category_id: '9').pluck(:money).sum
-  end
-
-  def set_period_sum
-    @not_period = @investments.where(period_id: '1').pluck(:money).sum
-    @short_sum = @investments.where(period_id: '2').pluck(:money).sum
-    @middle_sum = @investments.where(period_id: '3').pluck(:money).sum
-    @long_sum = @investments.where(period_id: '4').pluck(:money).sum
   end
 end

@@ -4,13 +4,15 @@
   <div class="investments">
     <div class="group-date">
       <div class="category-header">
+       <%= link_to " もどる ", group_investments_path(@group) ,class:"btn btn-success"%>
        <p><i class="fas fa-user-friends"></i> <%= @group.name %> 詳細情報</p>
+       <%= link_to edit_group_path do%><i class="fas fa-cog"></i><% end%>
       </div>
       <div class="category-date">
      <div class="category-chart">
         <div class="group-names">     
           <div>所属メンバー：</div>
-          <div><% @group.users.each do |user| %><%= " #{user.nickname} " %><% end %></div>             
+          <div><% @group.users.each do |user| %><%= " #{user.nickname} " %><% end %></div>         
         </div>
 
           <div class="chart">
@@ -25,8 +27,16 @@
                     backgroundColor: [
                       "#f69679","#fecf8d","#fff799","#d0e39b","#94bcb7","#8490c8","#a888be","#dddddd"
                     ],
-                    data: [<%= @category2 %>, <%= @category3 %>,<%= @category4 %>,<%= @category5 %>,
-                    <%= @category6 %>,<%= @category7 %>,<%= @category8 %>,<%= @category9 %>]
+                    data: [
+                      <%= @investments.where(category_id: '2').pluck(:money).sum %>,
+                      <%= @investments.where(category_id: '3').pluck(:money).sum %>,
+                      <%= @investments.where(category_id: '4').pluck(:money).sum %>,
+                      <%= @investments.where(category_id: '5').pluck(:money).sum %>,
+                      <%= @investments.where(category_id: '6').pluck(:money).sum %>,
+                      <%= @investments.where(category_id: '7').pluck(:money).sum %>,
+                      <%= @investments.where(category_id: '8').pluck(:money).sum %>,
+                      <%= @investments.where(category_id: '9').pluck(:money).sum %>
+                      ]
                   }]
                 },
               options: {
@@ -44,49 +54,49 @@
             <tr>
               <th scope="col"></th>
               <th scope="col"><b>資産合計</b></th>
-              <th scope="col"><b><%= @total.to_s(:delimited) %> 円</b></th>     
+              <th scope="col"><b><%= Investment.where(group_id: @group).sum(:money).to_s(:delimited) %> 円</b></th>     
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row"></th>
               <td>貯金</td>
-              <td><%= @category2.to_s(:delimited) %> 円</td>  
+              <td><%= @investments.where(category_id: '2').pluck(:money).sum.to_s(:delimited) %> 円</td>  
             </tr>
             <tr>
               <th scope="row"></th>
               <td>国内株式</td>
-              <td><%= @category3.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(category_id: '3').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
             <tr>
               <th scope="row"></th>
               <td>外国株式</td>
-              <td><%= @category4.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(category_id: '4').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
             <tr>
               <th scope="row"></th>
               <td>投資信託</td>
-              <td><%= @category5.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(category_id: '5').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
             <tr>
               <th scope="row"></th>
               <td>債券</td>
-              <td><%= @category6.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(category_id: '6').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
             <tr>
               <th scope="row"></th>
               <td>コモディティ</td>
-              <td><%= @category7.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(category_id: '7').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
             <tr>
               <th scope="row"></th>
               <td>暗号資産</td>
-              <td><%= @category8.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(category_id: '8').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
             <tr>
               <th scope="row"></th>
               <td>その他</td>
-              <td><%= @category9.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(category_id: '9').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
           </tbody>
         </table>              
@@ -99,22 +109,22 @@
             <tr>
               <th scope="row"></th>
               <td>短期</td>
-              <td><%= @short_sum.to_s(:delimited) %> 円</td>  
+              <td><%= @investments.where(period_id: '2').pluck(:money).sum.to_s(:delimited) %> 円</td>  
             </tr>
             <tr>
               <th scope="row"></th>
               <td>中期</td>
-              <td><%= @middle_sum.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(period_id: '3').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
             <tr>
               <th scope="row"></th>
               <td>長期</td>
-              <td><%= @long_sum.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(period_id: '4').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
             <tr>
               <th scope="row"></th>
               <td>指定なし</td>
-              <td><%= @not_period.to_s(:delimited) %> 円</td>
+              <td><%= @investments.where(period_id: '1').pluck(:money).sum.to_s(:delimited) %> 円</td>
             </tr>
         </tbody>
         </table>
@@ -129,7 +139,12 @@
                 labels: [ "短期", "中期", "長期", "指定なし"],
                 datasets: [{
                     backgroundColor: [ "#f69679", "#9fca99", "#8aa3b9", "#dddddd"],
-                    data: [<%= @short_sum %>, <%= @middle_sum %>,<%= @long_sum %>,<%= @not_period %>]
+                    data: [
+                      <%= @investments.where(period_id: '2').pluck(:money).sum %>,
+                      <%= @investments.where(period_id: '3').pluck(:money).sum %>,
+                      <%= @investments.where(period_id: '4').pluck(:money).sum %>,
+                      <%= @investments.where(period_id: '1').pluck(:money).sum %>
+                      ]
                   }]
                 },
               options: {

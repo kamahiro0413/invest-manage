@@ -3,17 +3,156 @@
  <%= render "shared/side_bar" %>
 
   <div class="investments">
-    <% if user_signed_in? %>
-      <div class="invest-header">
-       <%= "#{}" %>
+    <div class="group-date">
+      <div class="my-header">
+       <%= link_to " もどる ", root_path ,class:"btn btn-success ml-2"%>
+        <p><i class="fas fa-info-circle"></i><%= " #{current_user.nickname}さんの"%>マイページ </p>
       </div>
-      <div class="calendar">
-       <%= month_calendar do |date| %>
-        <%= date.day %>
-       <% end %>
+      <div class="category-date">
+        <div class="category-chart">
+          <div class="chart">
+            <canvas id="myDoughnutChart" width="550"></canvas>
+            <script>
+            var ctx = document.getElementById("myDoughnutChart");
+            var myDoughnutChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ["貯金","国内株式", "外国株式", "投資信託","債券","コモディティ","暗号資産","その他"],
+                datasets: [{
+                    backgroundColor: [
+                      "#f69679","#fecf8d","#fff799","#d0e39b","#94bcb7","#8490c8","#a888be","#dddddd"
+                    ],
+                    data: [
+                      <%= @investment.where(category_id: '2').pluck(:money).sum %>,
+                      <%= @investment.where(category_id: '3').pluck(:money).sum %>,
+                      <%= @investment.where(category_id: '4').pluck(:money).sum %>,
+                      <%= @investment.where(category_id: '5').pluck(:money).sum %>,
+                      <%= @investment.where(category_id: '6').pluck(:money).sum %>,
+                      <%= @investment.where(category_id: '7').pluck(:money).sum %>,
+                      <%= @investment.where(category_id: '8').pluck(:money).sum %>,
+                      <%= @investment.where(category_id: '9').pluck(:money).sum %>
+                    ]
+                  }]
+                },
+              options: {
+                title: {
+                  display: true,
+                  text: ' 種類別の内訳'
+                      }
+                    }
+                  });
+            </script>
+          </div>
+        </div>
+        <table class="table table-striped m-4">
+          <thead class="thead-title">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"><b>資産合計</b></th>
+              <th scope="col"><b><%= @investment.sum(:money).to_s(:delimited) %> 円</b></th>     
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td>貯金</td>
+              <td><%= @investment.where(category_id: '2').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>国内株式</td>
+              <td><%= @investment.where(category_id: '3').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>外国株式</td>
+              <td><%= @investment.where(category_id: '4').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>投資信託</td>
+              <td><%= @investment.where(category_id: '5').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>債券</td>
+              <td><%= @investment.where(category_id: '6').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>コモディティ</td>
+              <td><%= @investment.where(category_id: '7').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>暗号資産</td>
+              <td><%= @investment.where(category_id: '8').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>その他</td>
+              <td><%= @investment.where(category_id: '9').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+          </tbody>
+        </table>          
       </div>
-    <% else %>
-      <img src="https://thinklistenlearn.com/wp-content/uploads/Demo-5.jpg" width="900px">
-    <% end %>
+      <div class="category-date">
+        <div class="period">
+       <table class="table table-striped ">
+       <tbody>
+       <p class="p-2"><b>期間ごと</b></p>
+            <tr>
+              <th scope="row"></th>
+              <td>短期</td>
+              <td><%= @investment.where(period_id: '2').pluck(:money).sum.to_s(:delimited) %> 円</td>  
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>中期</td>
+              <td><%= @investment.where(period_id: '3').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>長期</td>
+              <td><%= @investment.where(period_id: '4').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>指定なし</td>
+              <td><%= @investment.where(period_id: '1').pluck(:money).sum.to_s(:delimited) %> 円</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>  
+        <div class="chart">
+          <canvas id="myPieChart" width="500"></canvas>
+          <script>
+            var ctx = document.getElementById("myPieChart");
+            var myDoughnutChart = new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: [ "短期", "中期", "長期", "指定なし"],
+                datasets: [{
+                    backgroundColor: [ "#f69679", "#9fca99", "#8aa3b9", "#dddddd"],
+                    data: [
+                      <%= @investment.where(period_id: '2').pluck(:money).sum %>,
+                      <%= @investment.where(period_id: '3').pluck(:money).sum %>,
+                      <%= @investment.where(period_id: '4').pluck(:money).sum %>,
+                      <%= @investment.where(period_id: '1').pluck(:money).sum %>
+                      ]
+                  }]
+                },
+              options: {
+                title: {
+                  display: true,
+                  text: ' 期間ごとの内訳'
+                      }
+                    }
+                  });
+          </script>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
 </div>

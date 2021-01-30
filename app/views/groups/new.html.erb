@@ -3,29 +3,32 @@
   <%= render "shared/side_bar" %>
 
   <div class="investments">
-    <div class="form">
-      <div class="form-group">
-        <div class="form-title">
-          <h3><i class="fas fa-pencil-alt" ></i>  新しいグループを作成</h3>
-        </div>
-        <%=form_with model: @group, local: true do |f|%>
-          <div class="field">
-            <label for="formGroupExampleInput"><i class="fas fa-user-friends"></i> グループ名</label>
-            <%= f.text_field :name, autofocus: true , class: "form-control" %>
+    <div class="form-back">
+      <div class="form">
+        <div class="form-group">
+          <div class="form-title">
+            <h3><i class="fas fa-pencil-alt" ></i>  新しいグループを作成</h3>
           </div>
-          <div class="field">
-          <select name="group[user_ids][]">
-            <option value="">&nbsp;&nbsp;追加したいメンバーを選択&nbsp;&nbsp;</option>
-              <% User.where.not(id: current_user.id).each do |user| %>
-               <option value=<%= user.id %>><%= user.nickname %></option>
-              <% end %>
-          </select>
-          <input name="group[user_ids][]" type="hidden" value=<%= current_user.id %>>
-          </div>
-          <div class="actions">
-          <%= f.submit " 作成 ", class:"btn btn-primary btn-lg" %>
+          <%=form_with model: @group, local: true do |f|%>
+            <div class="field">
+              <label for="formGroupExampleInput"><i class="fas fa-user-friends"></i> グループ名</label>
+              <%= f.text_field :name, autofocus: true , class: "form-control m-1"%>
+            </div>
+            <div class="d-flex p-3 field justify-content-center">
+            <select name="group[user_ids][]">
+              <option value="">&nbsp;&nbsp;追加したいメンバーを選択&nbsp;&nbsp;</option>
+                <% User.where.not(id: current_user.id).each do |user| %>
+                <option value=<%= user.id %>><%= user.nickname %></option>
+                <% end %>
+            </select>
+            <input name="group[user_ids][]" type="hidden" value=<%= current_user.id %>>
+            </div>
+            <div class="actions">
+            <%= f.submit " 作成 ", class:"btn btn-primary btn-lg" %>
+            <%= link_to " もどる ",root_path ,class:"btn btn-success btn-lg"%>
+            </div> 
+          <% end %>
         </div>
-        <% end %>
       </div>
     </div>
   </div>

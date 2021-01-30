@@ -2,6 +2,7 @@
   <%= render "shared/side_bar" %>
   
   <div class="investments">
+  <div class="form-back">
     <div class="form">
       <div class="form-group">
         <div class="form-title">
@@ -9,12 +10,16 @@
         </div>
         <%= form_with model:[@group,@investment],url:group_investments_path,local: true do |f| %>
         <div class="field">
+        <div class="row">
+        <div class="col">
             <label for="formGroupExampleInput"> 日付</label>
             <%= f.date_field :start_time, class: "form-control" %>
         </div>
-        <div class="field">
+        <div class="col">
             <label for="formGroupExampleInput"><i class="fas fa-yen-sign"></i> 金額</label>
-            <%= f.text_field :money, class: "form-control",placeholder: "半角数字のみ入力してください" %>
+            <%= f.text_field :money, class: "form-control",placeholder: "半角数字のみ" %>
+        </div>
+        </div>
         </div>
         <div class="field">
             <label for="formGroupExampleInput"> 内容</label>
@@ -29,15 +34,16 @@
             <%= f.collection_select(:account_id, Account.all, :id, :name, {},{class: "form-control" }) %>
         </div>
         <div class="field">
-            <label for="formGroupExampleInput"> 期間</label>
+            <label for="formGroupExampleInput"> 保有期間</label>
             <%= f.collection_select(:period_id, Period.all, :id, :name, {},{class: "form-control" }) %>
         </div>
         <div class="actions">
           <%= f.submit " 入力完了 ", class:"btn btn-primary btn-lg" %>
+          <%= link_to " もどる ", group_investments_path(@group.id) ,class:"btn btn-success btn-lg"%>
         </div>
         <% end %>
       </div>
     </div>
   </div>
-
+  </div>
 </div>
