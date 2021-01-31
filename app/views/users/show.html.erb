@@ -6,10 +6,13 @@
     <div class="group-date">
       <div class="my-header">
        <%= link_to " もどる ", root_path ,class:"btn btn-success ml-2"%>
-        <p><i class="fas fa-info-circle"></i><%= " #{current_user.nickname}さんの"%>マイページ </p>
+        <p><i class="fas fa-info-circle"></i> マイページ </p>
       </div>
       <div class="category-date">
         <div class="category-chart">
+          <div class="group-names">     
+           <div><%= " #{current_user.nickname}さんの資産状況"%></div>         
+          </div>
           <div class="chart">
             <canvas id="myDoughnutChart" width="550"></canvas>
             <script>
