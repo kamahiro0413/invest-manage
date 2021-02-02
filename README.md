@@ -1,27 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名 「カネんだ」
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## アプリケーションの概要
+積立投資の管理を目的としたアプリです。
+自由にグループを作成することができ、個人用、家族用、子供の教育資金といった具合に、ユーザーの生活スタイルに合わせて資産を分けて管理することが可能です。
 
 # テーブル設計
 
