@@ -66,16 +66,16 @@ http://18.183.0.80/
 
 ## investments テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
-| group   | references | null: false, foreign_key: true |
-| date    | date       | null: false                    |
-| money   | integer    | null: false                    |
-| content | string     | null: false                    |
-| type    | integer    | null: false                    |
-| account | integer    | null: false                    |
-| period  | integer    |                                |
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| user       | references | null: false, foreign_key: true |
+| group      | references | null: false, foreign_key: true |
+| start_time | date       | null: false                    |
+| money      | integer    | null: false                    |
+| content    | string     | null: false                    |
+| type       | integer    | null: false                    |
+| account    | integer    | null: false                    |
+| period     | integer    | null: false                    |
 
 ### Association
 
