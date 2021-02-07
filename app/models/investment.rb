@@ -1,6 +1,7 @@
 class Investment < ApplicationRecord
   belongs_to :user
   belongs_to :group
+  has_many   :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

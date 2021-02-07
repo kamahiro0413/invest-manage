@@ -21,7 +21,8 @@ class InvestmentsController < ApplicationController
   end
 
   def show
-   
+   @comment = Comment.new
+   @comments = @investment.comments.includes(:user)
   end
 
   def edit
