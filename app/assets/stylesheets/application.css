@@ -310,7 +310,9 @@ body {
   background-repeat: repeat;
   margin: 5px;
   background-size: cover;
+  display: flex;
 }
+
 
 .form p {
   font-size: 19px;
@@ -330,6 +332,18 @@ body {
             box-shadow: 0 10px 6px -6px #777;
 }
 
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  border: #DEB887 6px solid;
+  width: 380px;
+  height: 100vh;
+  background-color: #2f5d50;
+  border-radius:2px;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+}
 
 .form-title {
   height: 50px;
