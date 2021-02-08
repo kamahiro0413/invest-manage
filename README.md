@@ -67,22 +67,30 @@ http://18.183.0.80/
 
 ### フロントエンド
 ・HTML
+
 ・CSS
+
 ・JavaScript
+
 ・Bootstrap 4.5
 
 ### バックエンド
 ・Ruby 2.6.5
+
 ・Ruby on Rails 6.0.0
 
 ### 本番環境
 ・AWS(EC2)
+
 ・MariaDB
+
 ・Unicorn
+
 ・Nginx
 
 
 # テーブル設計
+
 [![Image from Gyazo](https://i.gyazo.com/919fcef5a08b04b4bdcc4aa09228c9cd.png)](https://gyazo.com/919fcef5a08b04b4bdcc4aa09228c9cd)
 
 ## users テーブル
