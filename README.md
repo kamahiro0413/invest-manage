@@ -45,10 +45,12 @@ http://18.183.0.80/
 
 メンバーを追加して、共同で資産を管理することができます。
 
+
 [![Image from Gyazo](https://i.gyazo.com/21134428e5a2c285c703f9652164f1bd.gif)](https://gyazo.com/21134428e5a2c285c703f9652164f1bd)
 
 ### 投資情報投稿機能
 グループ内に投資情報を投稿することができます。投稿内容はグループ内のメンバーのみ閲覧可能。
+
 
 [![Image from Gyazo](https://i.gyazo.com/973e6734e0b1901613c21055bf2a73fe.gif)](https://gyazo.com/973e6734e0b1901613c21055bf2a73fe)
 
@@ -57,18 +59,19 @@ http://18.183.0.80/
 
 投資商品ごとに小計と投資期間ごとの小計を表示。
 
+
 [![Image from Gyazo](https://i.gyazo.com/5b052203c12d0fec90226877678658a6.gif)](https://gyazo.com/5b052203c12d0fec90226877678658a6)
 
 
 # 使用環境・技術
 
-###　フロントエンド
+### フロントエンド
 ・HTML
 ・CSS
 ・JavaScript
 ・Bootstrap 4.5
 
-###　バックエンド
+### バックエンド
 ・Ruby 2.6.5
 ・Ruby on Rails 6.0.0
 
