@@ -1,6 +1,7 @@
 # カネんだ
 積み立て投資管理アプリ
 
+[![Image from Gyazo](https://i.gyazo.com/3f04ccd64861c8c33b28a45f3a93681c.gif)](https://gyazo.com/3f04ccd64861c8c33b28a45f3a93681c)
 
 ## アプリケーションの概要
 積立投資の管理を目的としたアプリです。
