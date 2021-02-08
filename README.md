@@ -1,7 +1,7 @@
 # カネんだ
 積み立て投資管理アプリ
 
-[![Image from Gyazo](https://i.gyazo.com/3f04ccd64861c8c33b28a45f3a93681c.gif)](https://gyazo.com/3f04ccd64861c8c33b28a45f3a93681c)
+[![Image from Gyazo](https://i.gyazo.com/50e90134741d397aaa513afccb5d8d9c.png)](https://gyazo.com/50e90134741d397aaa513afccb5d8d9c)
 
 ## アプリケーションの概要
 積立投資の管理を目的としたアプリです。
@@ -17,10 +17,14 @@
 ### 投資情報投稿機能
 グループ内に投資情報を投稿することができます。投稿内容はグループ内のメンバーのみ閲覧可能。
 
+[![Image from Gyazo](https://i.gyazo.com/973e6734e0b1901613c21055bf2a73fe.gif)](https://gyazo.com/973e6734e0b1901613c21055bf2a73fe)
+
 ### 資産配分のグラフ表示
 グラフによりグループごと、または個人の資産配分を把握することができます。
 
 投資商品ごとに小計と投資期間ごとの小計を表示。
+
+[![Image from Gyazo](https://i.gyazo.com/5b052203c12d0fec90226877678658a6.gif)](https://gyazo.com/5b052203c12d0fec90226877678658a6)
 
 ## URL
 http://18.183.0.80/
