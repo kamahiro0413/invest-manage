@@ -11,11 +11,11 @@
         <%= form_with model:[@group,@investment],url:group_investments_path,local: true do |f| %>
         <div class="field">
         <div class="row">
-        <div class="col">
+        <div class="col-7">
             <label for="formGroupExampleInput"> 日付</label>
             <%= f.date_field :start_time, class: "form-control" %>
         </div>
-        <div class="col">
+        <div class="col-5">
             <label for="formGroupExampleInput"><i class="fas fa-yen-sign"></i> 金額</label>
             <%= f.text_field :money, class: "form-control",placeholder: "半角数字のみ" %>
         </div>

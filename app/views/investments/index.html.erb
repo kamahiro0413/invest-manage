@@ -5,13 +5,13 @@
   <div class="investments">
     <div class="invest-header">
       <div class="invest-botton">
-       <i class="fas fa-donate"><%= link_to " 情報を入力", new_group_investment_path(@group) %></i>
+       <%= link_to new_group_investment_path(@group) do %><i class="fas fa-donate"></i> 情報を入力<% end %>
       </div>
       <div class="invest-title">
        <%= @group.name %>
       </div>
       <div class="group-botton">
-        <i class="fas fa-user-friends"><%= link_to " グループ情報", group_path(@group) %></i>
+        <%= link_to group_path(@group) do %><i class="fas fa-user-friends"></i> グループ情報<% end %>
       </div>
     </div>
 
