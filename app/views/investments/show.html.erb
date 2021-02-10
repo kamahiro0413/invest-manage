@@ -79,16 +79,20 @@
           </div>
           <div class="comments">
           <h4 class="text-center text-warning m-2"><i class="far fa-comments"></i> コメント一覧</h4>
-            <% @comments.each do |comment| %>
-            <p class="text-white ml-4">
-              <%= comment.text %>
-              <%= comment.user.nickname %>
+            <% @comments.each do |comment| %>           
               <% if current_user.id == comment.user_id %>
-                <%= link_to group_investment_comment_path(@investment.group.id,comment.investment.id,comment.id), method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
-                <% end %>
+                <p class="text-white text-right mr-4">
+                  <%= comment.text %>
+                  <%= link_to group_investment_comment_path(@investment.group.id,comment.investment.id,comment.id), method: :delete do %>
+                  <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                </p>
+              <% else %>
+                <p class="text-white ml-4">
+                  <%= comment.text %>
+                  <%= comment.user.nickname %>
+                </p>
               <% end %>         
-            </p>
             <% end %>
           </div>
         </div>

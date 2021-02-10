@@ -63,6 +63,13 @@ http://18.183.0.80/
 [![Image from Gyazo](https://i.gyazo.com/5b052203c12d0fec90226877678658a6.gif)](https://gyazo.com/5b052203c12d0fec90226877678658a6)
 
 
+### コメント機能
+投稿にコメントを残すことができます。
+
+
+[![Image from Gyazo](https://i.gyazo.com/80412e2f394f742f4aaa4a7908e9ffc8.png)](https://gyazo.com/80412e2f394f742f4aaa4a7908e9ffc8)
+
+
 # 使用環境・技術
 
 ### フロントエンド
