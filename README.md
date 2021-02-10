@@ -98,7 +98,8 @@ http://18.183.0.80/
 
 # テーブル設計
 
-[![Image from Gyazo](https://i.gyazo.com/919fcef5a08b04b4bdcc4aa09228c9cd.png)](https://gyazo.com/919fcef5a08b04b4bdcc4aa09228c9cd)
+[![Image from Gyazo](https://i.gyazo.com/ff479be058475c4ab32bad05587bf264.png)](https://gyazo.com/ff479be058475c4ab32bad05587bf264)
+
 
 ## users テーブル
 
@@ -158,3 +159,17 @@ http://18.183.0.80/
 
 - belongs_to :user
 - belongs_to :group
+
+
+## comments テーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| text       | text       | null: false                    |
+| user       | references | null: false, foreign_key: true |
+| investment | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :investment
+- belongs_to :user
