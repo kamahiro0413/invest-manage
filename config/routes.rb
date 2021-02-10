@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "groups#index"
   resources :groups do
     resources :investments do
-      resources :comments, only: :create
+      resources :comments,only: [:destroy,:create]
     end
   end
   resources :users, only: :show

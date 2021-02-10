@@ -82,7 +82,12 @@
             <% @comments.each do |comment| %>
             <p class="text-white ml-4">
               <%= comment.text %>
-              <%= comment.user.nickname %>         
+              <%= comment.user.nickname %>
+              <% if current_user.id == comment.user_id %>
+                <%= link_to group_investment_comment_path(@investment.group.id,comment.investment.id,comment.id), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>         
             </p>
             <% end %>
           </div>
