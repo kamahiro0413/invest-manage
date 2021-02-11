@@ -11,7 +11,52 @@
       </div>
     <% else %>
       <div class="top-image">
-      </div>
+        <div class="d-flex align-content-center flex-column text-center mt-5">
+          <div class="home-logo">カネんだ</div>
+          <p class="font-weight-bold h4 text-dark">- 積み立て投資管理あぷり -</p>
+        </div>
+        <div class="home-text">投資を始めてはみたけど、うまく管理できない！</div>
+        <div class="d-flex mt-3">
+          <div class="d-flex flex-column">
+          <p class="h4 mr-5 font-weight-bold ml-5">そんな方にオススメの機能を実装</p>
+          <ul class="font-weight-bold">
+            <li class="home-text text-left bg-light">・グループを作成し共同で管理</li>
+            <li class="home-text text-left bg-light">・投資情報をカレンダー上に表示</li>
+            <li class="home-text text-left bg-light">・投資商品を細かく分類</li>
+            <li class="home-text text-left bg-light">・グラフ表示で資産配分が一目瞭然</li>
+          </ul>
+          </div>
+        <div class="chart ml-5">
+          <canvas id="myDoughnutChart" width="300" height="250"></canvas>
+          <script>
+            var ctx = document.getElementById("myDoughnutChart");
+            var myDoughnutChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ["貯金","国内株式","債券"],
+                datasets: [{
+                    backgroundColor: [
+                      "#f69679","#fecf8d","#fff799"
+                    ],
+                    data: [
+                      200000,50000,20000
+                      ]
+                  }]
+                },
+              options: {
+                title: {
+                  display: true,
+                  text: '投資の種類ごとにグラフで分類！'
+                      }
+                    }
+                  });
+          </script>
+          </div>
+        </div>
+        
+
+
+      </div>    
     <% end %>
   </div>
 </div>
